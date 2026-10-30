@@ -424,7 +424,7 @@ export const ThreePCViewer: React.FC<ThreePCViewerProps> = ({
 
     // Load authentic Black Raven Logo onto case and pump
     const textureLoader = new THREE.TextureLoader();
-    const logoTexture = textureLoader.load('/assets/aistudio/image_999d9928.png');
+    const logoTexture = textureLoader.load(`${import.meta.env.BASE_URL}assets/aistudio/image_999d9928.png`);
     logoTexture.colorSpace = THREE.SRGBColorSpace;
 
     const logoMat = new THREE.MeshBasicMaterial({
@@ -1157,7 +1157,7 @@ export const ThreePCViewer: React.FC<ThreePCViewerProps> = ({
       <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
         <div className="flex items-center gap-2.5 px-3 py-1.5 bg-[#0e0e16]/85 border border-zinc-800/80 rounded-lg text-xs font-mono text-zinc-300 backdrop-blur-md shadow-lg">
           <img
-            src="/assets/aistudio/image_999d9928.png"
+            src={`${import.meta.env.BASE_URL}assets/aistudio/image_999d9928.png`}
             alt="BLACK RAVEN"
             className="h-4.5 w-auto object-contain filter drop-shadow"
           />

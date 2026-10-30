@@ -80,7 +80,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
               <div className="pt-1">
                 <img
-                  src="/assets/aistudio/image_999d9928.png"
+                  src={`${import.meta.env.BASE_URL}assets/aistudio/image_999d9928.png`}
                   alt="BLACK RAVEN"
                   className="h-14 sm:h-18 lg:h-22 w-auto max-w-[320px] sm:max-w-[460px] object-contain filter drop-shadow-[0_0_24px_rgba(139,92,246,0.45)] hover:drop-shadow-[0_0_36px_rgba(139,92,246,0.7)] transition-all duration-300"
                 />
@@ -156,7 +156,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="relative z-20 flex flex-col items-center justify-center p-6 text-center max-w-md mx-auto space-y-4">
                 <div className="p-3.5 rounded-2xl bg-zinc-900/90 border border-zinc-700/80 shadow-inner shadow-purple-900/30 relative">
                   <img
-                    src="/assets/aistudio/image_999d9928.png"
+                    src={`${import.meta.env.BASE_URL}assets/aistudio/image_999d9928.png`}
                     alt="BLACK RAVEN"
                     className="h-14 sm:h-16 w-auto object-contain filter drop-shadow-[0_0_20px_rgba(139,92,246,0.6)]"
                   />
@@ -214,7 +214,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 {!videoLoaded && (
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#090913] to-[#040407] transition-opacity duration-500">
                     <img
-                      src="/assets/hero-poster.svg"
+                      src={`${import.meta.env.BASE_URL}assets/hero-poster.svg`}
                       alt="BLACK RAVEN Rig Poster"
                       className="w-full h-full object-contain opacity-75 filter drop-shadow-[0_15px_30px_rgba(139,92,246,0.25)]"
                     />
@@ -228,7 +228,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 {/* Video Showcase Element with Poster & Lazy Loading */}
                 <video
                   ref={videoRef}
-                  poster="/assets/hero-poster.svg"
+                  poster={`${import.meta.env.BASE_URL}assets/hero-poster.svg`}
                   preload="metadata"
                   autoPlay
                   loop
@@ -242,7 +242,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 >
                   {isInView && (
                     <source
-                      src="/assets/aistudio/pass4-1440-transparent.v3__1__1890eb65.webm"
+                      src={`${import.meta.env.BASE_URL}assets/aistudio/pass4-1440-transparent.v3__1__1890eb65.webm`}
                       type="video/webm"
                     />
                   )}

@@ -26,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           title="BLACK RAVEN - Home"
         >
           <img
-            src="/assets/aistudio/image_999d9928.png"
+            src={`${import.meta.env.BASE_URL}assets/aistudio/image_999d9928.png`}
             alt="BLACK RAVEN"
             className="h-10 sm:h-12 md:h-14 w-auto max-w-[240px] sm:max-w-[320px] object-contain filter drop-shadow-[0_0_16px_rgba(139,92,246,0.4)] group-hover:drop-shadow-[0_0_26px_rgba(139,92,246,0.75)] group-hover:scale-105 transition-all duration-300"
           />

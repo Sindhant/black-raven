@@ -128,7 +128,7 @@ export const QuotationModal: React.FC<QuotationModalProps> = ({
             <div className="flex flex-col sm:flex-row justify-between items-start gap-4 pb-6 border-b border-zinc-800 print:border-zinc-300">
               <div>
                 <img
-                  src="/assets/aistudio/image_999d9928.png"
+                  src={`${import.meta.env.BASE_URL}assets/aistudio/image_999d9928.png`}
                   alt="BLACK RAVEN"
                   className="h-9 w-auto object-contain mb-2 print:invert"
                 />

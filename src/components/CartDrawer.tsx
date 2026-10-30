@@ -332,7 +332,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             {checkoutStep === 'confirmed' && confirmedOrder && (
               <div className="text-center py-6 space-y-4">
                 <img
-                  src="/assets/aistudio/image_999d9928.png"
+                  src={`${import.meta.env.BASE_URL}assets/aistudio/image_999d9928.png`}
                   alt="BLACK RAVEN"
                   className="h-12 w-auto object-contain mx-auto filter drop-shadow-[0_0_18px_rgba(139,92,246,0.5)] mb-1"
                 />

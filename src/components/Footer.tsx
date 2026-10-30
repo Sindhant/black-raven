@@ -13,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Brand Info */}
           <div className="space-y-4">
             <img
-              src="/assets/aistudio/image_999d9928.png"
+              src={`${import.meta.env.BASE_URL}assets/aistudio/image_999d9928.png`}
               alt="BLACK RAVEN"
               className="h-12 sm:h-14 md:h-16 w-auto max-w-[280px] object-contain opacity-95 filter drop-shadow-[0_0_18px_rgba(139,92,246,0.4)] mb-2"
             />

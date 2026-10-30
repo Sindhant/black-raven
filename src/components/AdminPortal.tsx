@@ -486,7 +486,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
         <div className="px-6 py-4 border-b border-zinc-800/80 bg-[#0c0c14] flex items-center justify-between shrink-0">
           <div className="flex items-center gap-4">
             <img
-              src="/assets/aistudio/image_999d9928.png"
+              src={`${import.meta.env.BASE_URL}assets/aistudio/image_999d9928.png`}
               alt="BLACK RAVEN"
               className="h-9 sm:h-11 w-auto object-contain filter drop-shadow-[0_0_14px_rgba(139,92,246,0.4)]"
             />
@@ -553,7 +553,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
         {!isAuthorized ? (
           <div className="p-8 sm:p-12 text-center max-w-md mx-auto my-auto space-y-6">
             <img
-              src="/assets/aistudio/image_999d9928.png"
+              src={`${import.meta.env.BASE_URL}assets/aistudio/image_999d9928.png`}
               alt="BLACK RAVEN"
               className="h-16 sm:h-20 w-auto object-contain mx-auto filter drop-shadow-[0_0_24px_rgba(139,92,246,0.6)]"
             />
