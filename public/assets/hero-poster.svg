@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%">
+  <defs>
+    <radialGradient id="ambientGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#ec4899" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#050508" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="chassisGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#27272a" />
+      <stop offset="50%" stop-color="#18181b" />
+      <stop offset="100%" stop-color="#09090b" />
+    </linearGradient>
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.25" />
+      <stop offset="40%" stop-color="#3b82f6" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6" />
+    </linearGradient>
+    <linearGradient id="neonPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="50%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="#060609" />
+  <circle cx="600" cy="450" r="420" fill="url(#ambientGlow)" />
+
+  <!-- Chassis Outline Silhouette -->
+  <g transform="translate(360, 160)">
+    <!-- Main Frame -->
+    <rect x="0" y="0" width="480" height="580" rx="20" fill="url(#chassisGrad)" stroke="#3f3f46" stroke-width="2" />
+    
+    <!-- Tempered Glass Window -->
+    <rect x="25" y="25" width="430" height="530" rx="12" fill="url(#glassGrad)" stroke="#52525b" stroke-width="1.5" />
+    <polygon points="25,25 320,25 25,320" fill="#ffffff" fill-opacity="0.04" />
+    <polygon points="120,25 455,25 455,360 25,555" fill="#a855f7" fill-opacity="0.03" />
+
+    <!-- Top Exhaust Fans -->
+    <rect x="50" y="38" width="110" height="16" rx="4" fill="#18181b" stroke="#71717a" stroke-width="1" />
+    <rect x="175" y="38" width="110" height="16" rx="4" fill="#18181b" stroke="#71717a" stroke-width="1" />
+    <rect x="300" y="38" width="110" height="16" rx="4" fill="#18181b" stroke="#71717a" stroke-width="1" />
+
+    <!-- AIO CPU Cooler Block with ARGB ring -->
+    <g transform="translate(230, 230)">
+      <circle cx="0" cy="0" r="45" fill="#18181b" stroke="url(#neonPurple)" stroke-width="4" filter="url(#glow)" />
+      <circle cx="0" cy="0" r="32" fill="#09090b" stroke="#8b5cf6" stroke-width="2" />
+      <!-- Water Cooling Tubes -->
+      <path d="M 28,-15 C 80,-80 180,-120 220,-170" fill="none" stroke="#a855f7" stroke-width="7" stroke-linecap="round" />
+      <path d="M 15,-28 C 60,-90 150,-130 190,-170" fill="none" stroke="#ec4899" stroke-width="7" stroke-linecap="round" />
+    </g>
+
+    <!-- RAM Sticks with RGB Heads -->
+    <g transform="translate(305, 175)">
+      <rect x="0" y="0" width="10" height="85" rx="3" fill="#27272a" />
+      <rect x="0" y="0" width="10" height="18" rx="2" fill="#8b5cf6" filter="url(#glow)" />
+      <rect x="18" y="0" width="10" height="85" rx="3" fill="#27272a" />
+      <rect x="18" y="0" width="10" height="18" rx="2" fill="#ec4899" filter="url(#glow)" />
+    </g>
+
+    <!-- Massive GPU Card with Side RGB Strip -->
+    <g transform="translate(50, 340)">
+      <rect x="0" y="0" width="375" height="110" rx="8" fill="#18181b" stroke="#3f3f46" stroke-width="1.5" />
+      <line x1="15" y1="20" x2="360" y2="20" stroke="url(#neonPurple)" stroke-width="3" filter="url(#glow)" />
+      <!-- GPU Fans -->
+      <circle cx="80" cy="65" r="32" fill="#121215" stroke="#3f3f46" stroke-width="1" />
+      <circle cx="190" cy="65" r="32" fill="#121215" stroke="#3f3f46" stroke-width="1" />
+      <circle cx="300" cy="65" r="32" fill="#121215" stroke="#3f3f46" stroke-width="1" />
+    </g>
+
+    <!-- PSU Shroud -->
+    <rect x="25" y="475" width="430" height="80" rx="6" fill="#121217" stroke="#27272a" stroke-width="1" />
+    <text x="50" y="522" fill="#71717a" font-family="monospace" font-size="14" letter-spacing="3">BLACK RAVEN 1200W PLATINUM</text>
+  </g>
+
+  <!-- Ambient Floor Reflection -->
+  <ellipse cx="600" cy="780" rx="350" ry="30" fill="#8b5cf6" fill-opacity="0.15" filter="url(#glow)" />
+</svg>

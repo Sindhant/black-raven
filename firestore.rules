@@ -1,0 +1,77 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Catch-all Deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Security Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Bootstrapped Admin: user email from runtime metadata or admin document
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'mukund07singh12@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // Hardware Catalog Products (Public storefront catalog; admin writes & initial seed)
+    match /products/{productId} {
+      allow read: if true;
+      allow create: if isAdmin() || !exists(/databases/$(database)/documents/products/$(productId));
+      allow update, delete: if isAdmin();
+    }
+
+    // Prebuilt Custom PCs & Bundles
+    match /prebuilts/{prebuiltId} {
+      allow read: if true;
+      allow create: if isAdmin() || !exists(/databases/$(database)/documents/prebuilts/$(prebuiltId));
+      allow update, delete: if isAdmin();
+    }
+
+    // Official Quotations (Customers submit proposals & view; admin updates status)
+    match /quotations/{quoteId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if isAdmin();
+    }
+
+    // Purchase Orders (Customers submit orders & track; admin manages pipeline)
+    match /orders/{orderId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if isAdmin();
+    }
+
+    // Customer Inquiries & Consultations
+    match /inquiries/{inquiryId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Storefront & Business Settings
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Admin Roles collection
+    match /admins/{adminId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+  }
+}

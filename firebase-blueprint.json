@@ -1,0 +1,121 @@
+{
+  "entities": {
+    "HardwareProduct": {
+      "title": "HardwareProduct",
+      "description": "PC Hardware component in the Black Raven catalog",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "sku": { "type": "string", "maxLength": 64 },
+        "name": { "type": "string", "maxLength": 128 },
+        "brand": { "type": "string", "maxLength": 64 },
+        "category": {
+          "type": "string",
+          "enum": ["cpu", "motherboard", "gpu", "ram", "storage", "cooler", "case", "psu", "accessories"]
+        },
+        "price": { "type": "number" },
+        "inStock": { "type": "boolean" },
+        "warrantyYears": { "type": "number" },
+        "wattage": { "type": "number" },
+        "socket": { "type": "string", "maxLength": 32 },
+        "ramType": { "type": "string", "maxLength": 32 },
+        "formFactor": { "type": "string", "maxLength": 32 },
+        "description": { "type": "string", "maxLength": 500 }
+      },
+      "required": ["id", "sku", "name", "brand", "category", "price", "inStock"]
+    },
+    "Quotation": {
+      "title": "Quotation",
+      "description": "Official Black Raven customer build proposal",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "quoteNumber": { "type": "string", "maxLength": 64 },
+        "customerName": { "type": "string", "maxLength": 128 },
+        "customerEmail": { "type": "string", "maxLength": 128 },
+        "customerPhone": { "type": "string", "maxLength": 32 },
+        "city": { "type": "string", "maxLength": 64 },
+        "state": { "type": "string", "maxLength": 64 },
+        "pincode": { "type": "string", "maxLength": 16 },
+        "subtotal": { "type": "number" },
+        "gstAmount": { "type": "number" },
+        "total": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "validUntil": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "submitted", "contacted", "approved", "expired"]
+        }
+      },
+      "required": ["id", "quoteNumber", "customerName", "customerEmail", "customerPhone", "total", "status"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase order in production",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "orderNumber": { "type": "string", "maxLength": 64 },
+        "subtotal": { "type": "number" },
+        "tax": { "type": "number" },
+        "total": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "paymentStatus": { "type": "string" },
+        "orderStatus": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "orderNumber", "total", "paymentMethod", "orderStatus"]
+    },
+    "CustomerInquiry": {
+      "title": "CustomerInquiry",
+      "description": "Hardware consultation inquiry from customer",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 128 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "budgetRange": { "type": "string", "maxLength": 64 },
+        "intendedUse": { "type": "string", "maxLength": 64 },
+        "message": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string", "enum": ["new", "contacted", "resolved"] }
+      },
+      "required": ["id", "name", "email", "status"]
+    },
+    "BusinessSettings": {
+      "title": "BusinessSettings",
+      "description": "Storefront configuration, tax and contact parameters",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "gstRate": { "type": "number" },
+        "businessEmail": { "type": "string", "maxLength": 128 },
+        "businessPhone": { "type": "string", "maxLength": 32 }
+      },
+      "required": ["id", "gstRate", "businessEmail"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "HardwareProduct",
+      "description": "Hardware components and catalog pricing"
+    },
+    "/quotations/{quoteId}": {
+      "schema": "Quotation",
+      "description": "Customer build proposals and estimates"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Production and delivery orders"
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": "CustomerInquiry",
+      "description": "Customer technical consultation requests"
+    },
+    "/settings/{settingId}": {
+      "schema": "BusinessSettings",
+      "description": "Storefront parameters"
+    }
+  }
+}
